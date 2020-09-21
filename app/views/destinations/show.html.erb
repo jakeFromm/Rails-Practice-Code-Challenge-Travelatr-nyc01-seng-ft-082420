@@ -1,0 +1,13 @@
+<h1><%= @destination.name %></h1>
+<h3>Five Most Recent Posts about <%= @destination.name %>:</h3>
+<ol>
+   <% for i in 0..4 %>
+    <li> <%= link_to @destination.recent_posts[i].title, post_path(@destination.recent_posts[i]) %></li>
+   <% end %>
+</ol>
+
+<h3>The Most-Liked Post about <%= @destination.name %></h3>
+<%= link_to @destination.featured_post.title, post_path(@destination.featured_post) %>
+
+<h3>Average Age of Bloggers Who Have Written about <%= @destination.name %></h3>
+<p><%= @destination.average_blogger_age %></p>

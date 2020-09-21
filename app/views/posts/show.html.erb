@@ -1,0 +1,8 @@
+<h1><%= @post.title %></h1>
+<p><%= @post.content %></p>
+<p>By: <%= link_to @post.blogger.name, blogger_path(@post.blogger) %></p>
+<p>About: <%= link_to @post.destination.name, destination_path(@post.destination) %></p>
+
+<%= button_to "LIKE", post_path(@post), method: :increment_likes %>
+
+<h2>Likes: <%= @post.likes %></h2>
