@@ -3,6 +3,8 @@
 <p>By: <%= link_to @post.blogger.name, blogger_path(@post.blogger) %></p>
 <p>About: <%= link_to @post.destination.name, destination_path(@post.destination) %></p>
 
-<%= button_to "LIKE", post_path(@post), method: :increment_likes %>
+<% if @post.is_liked == false %>
+    <%= button_to "LIKE", add_like_post_path(@post), method: :put %>
+<% end %>
 
 <h2>Likes: <%= @post.likes %></h2>

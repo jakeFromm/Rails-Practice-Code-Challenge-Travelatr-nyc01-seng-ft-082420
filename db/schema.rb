@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180815094403) do
+ActiveRecord::Schema.define(version: 20200922001644) do
 
   create_table "bloggers", force: :cascade do |t|
     t.string "name"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20180815094403) do
     t.integer "destination_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "is_liked", default: false
   end
 
 end

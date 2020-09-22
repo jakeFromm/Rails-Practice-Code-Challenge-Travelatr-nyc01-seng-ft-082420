@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-    before_action :find_post, only: [:show, :edit]
+    before_action :find_post, only: [:show, :edit, :update, :add_like]
     
     def index
         @posts = Post.all
@@ -26,13 +26,16 @@ class PostsController < ApplicationController
     def edit
     end
 
-    def increment_likes
-        @post.likes += 1
-        @post.update 
-    end
 
     def update
-        @post.update
+        @post.update(post_params)
+        redirect_to post_path(@post)
+    end
+
+    def add_like
+        @post.likes += 1
+        @post.is_liked = true
+        @post.save
         redirect_to post_path(@post)
     end
 
